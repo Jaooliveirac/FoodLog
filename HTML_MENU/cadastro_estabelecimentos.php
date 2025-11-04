@@ -50,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <ul>
                     <li><a href="home.html">Início</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="escolha-cadastro.html">Cadastro</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="escolha_cadastro.html">Cadastro</a></li>
                     <li><a href="contatos.html">Contato</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                 </ul>
