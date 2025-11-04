@@ -4,7 +4,7 @@ include 'conexao.php'; // ajuste o caminho da sua conexão
 
 // Verifica se usuário está logado
 if (!isset($_SESSION['id_usuario'])) {
-    header("Location: login.html");
+    header("Location: ../html_menu/login.php");
     exit;
 }
 
