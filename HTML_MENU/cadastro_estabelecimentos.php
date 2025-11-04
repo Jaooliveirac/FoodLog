@@ -4,7 +4,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php'; // arquivo de cone
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Recebendo dados do formulário
-    $nome_organizacao = $_POST['nome_organizacao'];
+    $nome_estabelecimento = $_POST['nome_estabelecimento'];
     $nome_usuario = $_POST['nome_usuario'];
     $cnpj = $_POST['cnpj'];
     $email = $_POST['email'];
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Inserindo estabelecimento
     $stmt = $conn->prepare("INSERT INTO estabelecimentos (nome_estabelecimento, cnpj) VALUES (?, ?)");
-    $stmt->bind_param("ss", $nome_organizacao, $cnpj);
+    $stmt->bind_param("ss", $nome_estabelecimento, $cnpj);
     
     if ($stmt->execute()) {
         $id_estabelecimento = $stmt->insert_id; // pega o id do estabelecimento recém-criado
