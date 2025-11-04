@@ -1,4 +1,5 @@
 <?php
+// login.php
 session_start();
 include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php';
 
@@ -6,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $senha = $_POST['senha'];
 
-    // Consulta usuário
     $sql = "SELECT * FROM usuarios WHERE email = '$email' LIMIT 1";
     $resultado = mysqli_query($conn, $sql);
 
@@ -18,17 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['nome_usuario'] = $usuario['nome_usuario'];
             $_SESSION['tipo'] = $usuario['tipo_usuario']; // 'ong' ou 'estabelecimento'
 
-            // Redireciona dependendo do tipo
-            if ($_SESSION['tipo'] === 'ong') {
-                header('Location: dashboard_ong.php');
-            } else if ($_SESSION['tipo'] === 'estabelecimento') {
-                header('Location: dashboard_estabelecimento.php');
-            }
-            exit;
-        }
-
-
-            // Se marcou "lembrar minha senha"
+            // Lembrar senha
             if(isset($_POST['lembrar'])) {
                 $token = bin2hex(random_bytes(32));
                 $expiracao = date('Y-m-d H:i:s', strtotime('+30 days'));
@@ -40,8 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 setcookie("remember_me", $token, time() + (30*24*60*60), "/", "", false, true);
             }
 
-            header('Location: dashboard.php');
+            // Redireciona dependendo do tipo
+            if ($_SESSION['tipo'] === 'ong') {
+                header('Location: ../html_pos_login_ong/dashboard_ong.php');
+            } else {
+                header('Location: ../html_pos_login_estabelecimento/dashboard_estabelecimento.php');
+            }
             exit;
+
         } else {
             $erro = "Email ou senha incorretos!";
         }
@@ -50,8 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -68,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>FoodLog</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Início</a></li>
+                <li><a href="home.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="escolha_cadastro.html">Cadastro</a></li>
@@ -97,15 +91,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="remember-password">
                 <label>
-                    <input type="checkbox" name="lembrar">
-                    Lembrar minha senha
+                    <input type="checkbox" name="lembrar"> Lembrar minha senha
                 </label>
             </div>
 
             <button class="login" type="submit"> Login </button>
 
             <div class="register-link">
-                <p><a href="../php/esqueci_senha.php">Esqueci minha senha</a></p>
                 <p>Não tem uma conta? <a href="escolha_cadastro.html">Cadastre-se</a></p>
             </div>
         </div>
@@ -113,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </main>
 
 <footer>
-    <strong>&copy; FoodLog 2025. Todos os direitos reservados. </strong>
+    <strong>&copy; FoodLog 2025. Todos os direitos reservados.</strong>
 </footer>
 </body>
 </html>
