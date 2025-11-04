@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../IMAGENS/foodloglogo.png);
+    background-size: cover;       
+    background-position: center;   
+}
+
+h1 {
+    color: #ff9d00;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: #881f1f;
+    color: #ff9d00;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .header-inner {
+        padding: 0 12px;
+    }
+
+    nav ul {
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+header {
+    background-color: #ffffff;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    backdrop-filter: blur(200px);
+
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #ff5722;
+}
+
+a.opcao {
+    display: block;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    background: #ff9d00;
+    color: white;
+    transition: 0.3s;
+}
+
+a.opcao:hover {
+    background: #e67e00;
+}
