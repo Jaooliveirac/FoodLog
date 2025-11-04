@@ -1,7 +1,7 @@
 <?php
 // login.php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php'; // ajuste o caminho para onde está o seu conexao.php
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
@@ -9,26 +9,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Evita SQL Injection
     $email = mysqli_real_escape_string($conn, $email);
-    $senha = mysqli_real_escape_string($conn, $senha);
 
-    // Consulta usuário
-    $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha' LIMIT 1";
+    // Consulta usuário pelo email
+    $sql = "SELECT * FROM usuarios WHERE email = '$email' LIMIT 1";
     $resultado = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($resultado) === 1) {
         $usuario = mysqli_fetch_assoc($resultado);
-        $_SESSION['id_usuario'] = $usuario['id'];
-        $_SESSION['nome_usuario'] = $usuario['nome'];
-        $_SESSION['tipo'] = $usuario['tipo']; // 'ong' ou 'estabelecimento'
 
-        // Redireciona para área logada
-        header('Location: dashboard.php');
-        exit;
+        // Verifica a senha hash
+        if (password_verify($senha, $usuario['senha'])) {
+            $_SESSION['id_usuario'] = $usuario['id_usuario'];
+            $_SESSION['nome_usuario'] = $usuario['nome_usuario'];
+            $_SESSION['tipo'] = $usuario['tipo_usuario']; // 'ong' ou 'estabelecimento'
+
+            header('Location: dashboard.php');
+            exit;
+        } else {
+            $erro = "Email ou senha incorretos!";
+        }
     } else {
         $erro = "Email ou senha incorretos!";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -81,7 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button class="login" type="submit"> Login </button>
 
             <div class="register-link">
-                <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                <p><a href="../php/esqueci_senha.php">Esqueci minha senha</a></p>
+                <p>Não tem uma conta? <a href="escolha_cadastro.html">Cadastre-se</a></p>
             </div>
         </div>
     </form>

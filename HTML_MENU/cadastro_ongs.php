@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <i class="bx bxs-lock-alt"></i>
                 </div>
                 <button class="voltar" type="button" onclick="location.href='escolha_cadastro.html'"> Voltar </button>
-                <button class="next-step" type="submit">Próximo Passo</button>
+                <button class="next-step" type="submit" onclick="location.href='login.php'">Cadastrar</button>
             </div>
         </form>
     </main>
