@@ -1,34 +1,33 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php'; // arquivo de conexão com o banco
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Recebendo dados do formulário
+    // Dados do formulário
     $nome_estabelecimento = $_POST['nome_estabelecimento'];
     $nome_usuario = $_POST['nome_usuario'];
-    $cnpj = $_POST['cnpj'];
+    $cpf = $_POST['cpf'];
     $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // criptografa a senha
+    $data_nascimento = $_POST['data_nascimento'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $tipo = $_POST['tipo']; // 'estabelecimento'
 
     // Inserindo estabelecimento
     $stmt = $conn->prepare("INSERT INTO estabelecimentos (nome_estabelecimento, cnpj) VALUES (?, ?)");
-    $stmt->bind_param("ss", $nome_estabelecimento, $cnpj);
-    
+    $stmt->bind_param("ss", $nome_estabelecimento, $_POST['cnpj']);
+
     if ($stmt->execute()) {
-        $id_estabelecimento = $stmt->insert_id; // pega o id do estabelecimento recém-criado
+        $id_estabelecimento = $stmt->insert_id;
 
         // Inserindo usuário vinculado ao estabelecimento
-        $stmt2 = $conn->prepare("INSERT INTO usuarios (nome_usuario, email, senha, tipo_usuario, id_estabelecimento) VALUES (?, ?, ?, ?, ?)");
-        $stmt2->bind_param("ssssi", $nome_usuario, $email, $senha, $tipo, $id_estabelecimento);
+        $stmt2 = $conn->prepare("INSERT INTO usuarios (nome_usuario, cpf, email, data_nascimento, senha, tipo_usuario, id_estabelecimento) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt2->bind_param("ssssssi", $nome_usuario, $cpf, $email, $data_nascimento, $senha, $tipo, $id_estabelecimento);
         $stmt2->execute();
 
         echo "<p style='color:green'>Cadastro realizado com sucesso!</p>";
     } else {
         echo "<p style='color:red'>Erro ao cadastrar: " . $stmt->error . "</p>";
     }
-
 }
 ?>
 

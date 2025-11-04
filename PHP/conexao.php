@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";        // seu usuário do MySQL
 $pass = "";            // sua senha do MySQL
-$db   = "foodlog";  // nome do banco
+$db   = "foodlog_db";  // nome do banco
 
 $conn = new mysqli($host, $user, $pass, $db);
 
