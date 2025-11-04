@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conexao.php'; // ajuste o caminho da sua conexão
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php'; // ajuste o caminho da sua conexão
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['id_usuario'])) {
