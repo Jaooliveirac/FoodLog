@@ -75,6 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input placeholder="E-mail" type="email" name="email" required>
                     <i class="material-icons">email</i>
                 </div>
+                <div class="input-box">
+                    <label for="data_nascimento">Data de Nascimento</label>
+                    <input type="date" name="data_nascimento" id="data_nascimento" required>
+                </div>
+
                 
                 <h2 style="color: orange;">Estabelecimento</h2>
                 <div class="input-box">
