@@ -14,10 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuario = mysqli_fetch_assoc($resultado);
 
         if (password_verify($senha, $usuario['senha'])) {
-            // Cria sessão
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome_usuario'] = $usuario['nome_usuario'];
-            $_SESSION['tipo'] = $usuario['tipo_usuario'];
+            $_SESSION['tipo'] = $usuario['tipo_usuario']; // 'ong' ou 'estabelecimento'
+            
+            // Redireciona dependendo do tipo
+            if ($_SESSION['tipo'] === 'ong') {
+                header('Location: dashboard_ong.php');
+            } else if ($_SESSION['tipo'] === 'estabelecimento') {
+                header('Location: dashboard_estabelecimento.php');
+            }
+            exit;
+        }
+
 
             // Se marcou "lembrar minha senha"
             if(isset($_POST['lembrar'])) {
