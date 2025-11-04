@@ -1,7 +1,7 @@
 <?php
 // login.php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php'; // ajuste o caminho para onde está o seu conexao.php
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php'; // ajuste o caminho para onde está o seu conexao.php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/stylelogin.css">
+    <link rel="stylesheet" href="../css/stylelogin.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <title>FoodLog Login</title>
 </head>

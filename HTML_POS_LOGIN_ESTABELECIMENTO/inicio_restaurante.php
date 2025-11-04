@@ -1,6 +1,6 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php'; // ajuste o caminho da sua conexão
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php'; // ajuste o caminho da sua conexão
 
 // Verifica se usuário está logado
 if (!isset($_SESSION['id_usuario'])) {
@@ -48,7 +48,7 @@ $result = mysqli_query($conn, "SELECT * FROM produto WHERE id_usuario = '$id_usu
 <head>
     <meta charset="UTF-8">
     <title>Produtos - FoodLog</title>
-    <link rel="stylesheet" href="../CSS/card.css">
+    <link rel="stylesheet" href="../css/card.css">
 </head>
 <body>
     <header>

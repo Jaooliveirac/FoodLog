@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Carrinho - FoodLog</title>
-    <link rel="stylesheet" href="../CSS/card.css">
+    <link rel="stylesheet" href="../css/card.css">
 </head>
 <body>
 <header>

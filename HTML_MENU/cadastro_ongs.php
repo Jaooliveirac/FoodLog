@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php';
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/cadastros.css">
+    <link rel="stylesheet" href="../css/cadastros.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>FoodLog - Cadastro ONG</title>
@@ -79,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="date" name="data_nascimento" id="data_nascimento" required>
                 </div>
                 
-                <h2 style="color: orange;">Organização</h2>
+                <h2 style="color: orange;">ONG</h2>
                 <div class="input-box">
-                    <input placeholder="Nome da Organização" type="text" name="nome_organizacao" required>
+                    <input placeholder="Nome da ONG" type="text" name="nome_ong" required>
                     <i class="bx bxs-user"></i>
                 </div>
                 <div class="input-box">

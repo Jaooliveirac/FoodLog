@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php';
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/cadastros.css">
+    <link rel="stylesheet" href="../css/cadastros.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>FoodLog - Cadastro Estabelecimento</title>

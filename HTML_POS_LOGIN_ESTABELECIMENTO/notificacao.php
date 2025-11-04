@@ -1,6 +1,6 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/PHP/conexao.php';  // ajuste o caminho da sua conexão
+include $_SERVER['DOCUMENT_ROOT'].'/FoodLog/php/conexao.php';  // ajuste o caminho da sua conexão
 
 // Checar login do restaurante
 if(!isset($_SESSION['id_usuario'])){
@@ -49,7 +49,7 @@ while($pedido = mysqli_fetch_assoc($pedidos_result)){
 <head>
     <meta charset="UTF-8">
     <title>Notificações - Restaurante</title>
-    <link rel="stylesheet" href="../CSS/card.css">
+    <link rel="stylesheet" href="../css/card.css">
 </head>
 <body>
 <header>
