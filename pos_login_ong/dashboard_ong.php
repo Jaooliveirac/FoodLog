@@ -3,7 +3,7 @@ session_start();
 
 // Proteção de página
 if(!isset($_SESSION['id_usuario'])) {
-    header('Location: login.php');
+    header('Location: \FoodLog\menu\login.php');
     exit;
 }
 ?>
@@ -24,4 +24,4 @@ if(!isset($_SESSION['id_usuario'])) {
     </ul>
 <?php endif; ?>
 
-<a href="logout.php">Sair</a>
+<a href="\FoodLog\php\logout.php">Sair</a>
