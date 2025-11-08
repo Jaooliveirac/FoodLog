@@ -62,4 +62,6 @@ $result = mysqli_query($conn, "SELECT * FROM produto WHERE id_usuario = '$id_usu
     </div>
 
 </body>
+    
+    <script src="../js/card.js"></script>
 </html>

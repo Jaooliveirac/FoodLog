@@ -57,9 +57,9 @@ if(!isset($_SESSION['id_usuario'])) {
             <nav>
                 <ul>
                     <li><a href="notificacao.html">Notificações</a></li>
-                    <li><a href="meus-produtos.html">Meus produtos</a></li>
-                    <li><a href="inicio-restaurante.html">Cadastrar produtos</a></li>
-                    <li><a href="../HTML MENU/home.html">Sair</a></li>
+                    <li><a href="meus_produtos.php">Meus produtos</a></li>
+                    <li><a href="dashboard_estabelecimento.php">Cadastrar produtos</a></li>
+                    <li><a href="../menu/index.php">Sair</a></li>
                 </ul>
             </nav>
         </div>
