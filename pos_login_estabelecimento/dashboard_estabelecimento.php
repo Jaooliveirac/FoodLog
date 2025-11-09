@@ -56,7 +56,7 @@ if(!isset($_SESSION['id_usuario'])) {
             <h1>FoodLog</h1>
             <nav>
                 <ul>
-                    <li><a href="notificacao.html">Notificações</a></li>
+                    <li><a href="notificacao.php">Notificações</a></li>
                     <li><a href="meus_produtos.php">Meus produtos</a></li>
                     <li><a href="dashboard_estabelecimento.php">Cadastrar produtos</a></li>
                     <li><a href="../menu/index.php">Sair</a></li>

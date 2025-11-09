@@ -25,14 +25,14 @@ $result = mysqli_query($conn, "SELECT * FROM produto WHERE id_usuario = '$id_usu
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
     <title>Meus Produtos - FoodLog</title>
 </head>
-
+    
 <body>
     <header>
         <div class="header-inner">
             <h1>FoodLog</h1>
             <nav>
                 <ul>
-                    <li><a href="notificacao.html">Notificações</a></li>
+                    <li><a href="notificacao.php">Notificações</a></li>
                     <li><a href="meus_produtos.php">Meus Produtos</a></li>
                     <li><a href="inicio_restaurante.php">Cadastrar Produtos</a></li>
                     <li><a href="<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>/FoodLog/menu/index.php">Sair</a></li>
